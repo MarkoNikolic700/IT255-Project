@@ -1,0 +1,26 @@
+<div class=" mb-5">
+
+
+
+  <form [formGroup]="myForm" (ngSubmit)="dodajHotel()" novalidate>
+    <div class="ui input" style="padding-left: 38px;" [class.error]="name.touched && (name.invalid || name.errors?.imeHotelaGreska )">
+  <input name="name" type="text" placeholder="Ime Hotela" formControlName="name" ><br>
+    </div>
+    <div class="ui input" [class.error]="location.touched && location.invalid">
+  <input name="location" type="text" placeholder="Lokacija Hotela" formControlName="location"><br>
+    </div>
+      <div class="ui input" [class.error]="price.touched && price.invalid">
+  <input name="price" type="number" placeholder="Cena Hotela" formControlName="price"><br>
+      </div>
+    <button class="ui blue button" [ngClass]="{'disabled': myForm.invalid}" >Add</button>
+    <div *ngIf="(name.touched && (name.invalid || name.errors?.imeHotelaGreska) ) || (location.touched && location.invalid) || (price.touched && price.invalid)" class="ui error message">
+      <ul class="list">
+        <li *ngIf="name.errors?.required && name.touched">Name is required</li>
+        <li *ngIf="name.errors?.imeHotelaGreska && name.touched">Name must be at least 7 letters</li>
+        <li *ngIf="location.invalid && location.touched">Location is required</li>
+        <li *ngIf="price.invalid && price.touched">Price is required</li>
+      </ul>
+    </div>
+
+  </form>
+</div>

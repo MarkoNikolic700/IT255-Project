@@ -1,0 +1,18 @@
+<div class="wide column center aligned votes" style="margin-left: 50px;">
+  
+    <div class="votes ">
+      {{ hotel.price }}$
+    </div>
+  
+</div>
+<div class="twelve wide column">
+  <a class="ui large header" href="#" target="_blank">
+    Hotel {{ hotel.name }}
+  </a>
+  <div class="meta">({{ hotel.location }})</div>
+
+  <button (click)="obrisi(hotel)" >X</button>
+
+</div>
+
+
